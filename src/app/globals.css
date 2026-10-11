@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+:root {
+  /* Light theme (Blokkah app–inspired) */
+  --color-navy: #001f3f;
+  --color-navy-mid: #0a2540;
+  --color-sky: #00aeef;
+  --color-sky-soft: #d1e9ff;
+  --color-page: #f8f9fb;
+  --color-page-accent: #eef6fc;
+  --color-surface: #ffffff;
+  --color-text: #0a2540;
+  --color-text-muted: #64748b;
+  --color-border: #d1e9ff;
+  --color-cta-gold: #e8a317;
+  --shadow-card: 0 10px 40px -12px rgba(15, 40, 70, 0.12),
+    0 4px 16px -8px rgba(15, 40, 70, 0.08);
+  --shadow-float: 0 20px 50px -20px rgba(0, 31, 63, 0.18);
+  --background: var(--color-page);
+  --foreground: var(--color-text);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-tajawal), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-page);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Surfaces & buttons */
+.surface-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+.btn-navy {
+  background: var(--color-navy);
+  color: #fff;
+  box-shadow: 0 4px 14px -4px rgba(0, 31, 63, 0.45);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.btn-navy:hover:not(:disabled) {
+  filter: brightness(1.06);
+  box-shadow: 0 8px 22px -6px rgba(0, 31, 63, 0.5);
+}
+
+.btn-navy:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-sky-outline {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  color: var(--color-navy);
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-sky-outline:hover {
+  border-color: var(--color-sky);
+  color: var(--color-sky);
+  box-shadow: 0 4px 16px -6px rgba(0, 174, 239, 0.35);
+}
+
+.btn-ghost-light {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--color-border);
+  color: var(--color-navy);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn-ghost-light:hover {
+  background: #fff;
+  border-color: var(--color-sky-soft);
+}
+
+.input-light {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  color: var(--color-text);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.input-light::placeholder {
+  color: #94a3b8;
+}
+
+.input-light:focus {
+  outline: none;
+  border-color: var(--color-sky);
+  box-shadow: 0 0 0 3px rgba(0, 174, 239, 0.2);
+}
+
+/* Motion */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes visit-modal-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes visit-modal-panel-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.55s ease-out both;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-float {
+  animation: float-soft 4.5s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fade-in-up,
+  .animate-float,
+  .animate-pulse-soft {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.visit-modal-backdrop {
+  animation: visit-modal-backdrop-in 0.28s ease-out forwards;
+}
+
+.visit-modal-panel {
+  animation: visit-modal-panel-in 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.visit-modal-shine {
+  background: linear-gradient(
+    125deg,
+    transparent 0%,
+    rgba(0, 174, 239, 0.06) 45%,
+    transparent 60%
+  );
+}
