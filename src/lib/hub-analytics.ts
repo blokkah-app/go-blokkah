@@ -34,7 +34,7 @@ export function track(event: string, campaign: Attribution, params: Record<strin
   if (measurementId && window.gtag) window.gtag("event", event, { ...campaign, ...params });
 }
 // Navigation still works when Analytics is blocked, offline, or slow.
-export function trackedNavigate(url: string, campaign: Attribution, store: string, automatic: boolean) {
+export function trackedNavigate(url: string, campaign: Attribution, destination: string, automatic: boolean, eventName = "store_click") {
   let done = false;
   const navigate = () => {
     if (done) return;
@@ -43,8 +43,8 @@ export function trackedNavigate(url: string, campaign: Attribution, store: strin
     else window.location.assign(url);
   };
   const timeout = window.setTimeout(navigate, measurementId ? 1200 : 80);
-  track("store_click", campaign, {
-    destination: store, link_url: url, navigation_type: automatic ? "automatic" : "manual",
+  track(eventName, campaign, {
+    destination, link_url: url, navigation_type: automatic ? "automatic" : "manual",
     event_callback: navigate, event_timeout: 1000,
   });
   return () => { done = true; window.clearTimeout(timeout); };

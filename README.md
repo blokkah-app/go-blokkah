@@ -20,11 +20,12 @@ Development uses Webpack to avoid the observed Turbopack/PostCSS worker exhausti
 | LinkedIn | https://go.blokkah.app/linkedin |
 | Facebook | https://go.blokkah.app/facebook |
 | YouTube | https://go.blokkah.app/youtube |
-| App Store directly | https://go.blokkah.app/app-store |
+| App Store directly | https://go.blokkah.app/apple-store |
 | Google Play directly | https://go.blokkah.app/google-play |
+| Main website directly | https://go.blokkah.app/website |
 | QR / generic download | https://go.blokkah.app/download |
 
-The homepage stays a hub on every device. Social-channel and download links open the appropriate store on iOS/Android, including desktop-mode iPad. Desktop/unknown devices get both store buttons. Explicit store paths always select that store. JavaScript-disabled browsers still get working store anchors. Social cards on the hub open official social profiles; channel short URLs are acquisition links to download the app.
+The homepage stays a hub. The short paths in this table immediately forward to the matching official social profile, store, or website and send a best-effort `outbound_redirect` / `store_click` event to GA4 first. `app-store` remains an alias for `apple-store`. When the browser has JavaScript disabled or Analytics cannot load, a working destination link is shown. The home-page social cards continue to open official profiles.
 
 Example paid campaign:
 `https://go.blokkah.app/instagram?utm_medium=paid_social&utm_campaign=launch_october&utm_content=reel_01`
@@ -49,6 +50,7 @@ Supported parameters: `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`,
 | `store_click` | Manual or automatic navigation attempt to a store |
 | `social_click` | Click on an official social profile |
 | `outbound_click` | Click to the main website |
+| `outbound_redirect` | Short social/website link redirect |
 | `share` | Successful share / copy action |
 
 Events are best-effort browser analytics. Ad blockers, disabled JS, network failure, or leaving too quickly can prevent measurement. Store navigation waits for the event callback with a maximum 1.2-second fallback; Analytics never blocks navigation indefinitely. Nothing on this website confirms a completed store load or an install.

@@ -1,4 +1,4 @@
-export const channels = ["snapchat", "instagram", "x", "linkedin", "facebook", "youtube", "app-store", "google-play", "download"] as const;
+export const channels = ["snapchat", "instagram", "x", "linkedin", "facebook", "youtube", "app-store", "apple-store", "google-play", "website", "download"] as const;
 export type Channel = (typeof channels)[number];
 export type Store = "app-store" | "google-play";
 export type Query = Record<string, string | string[] | undefined>;
@@ -14,6 +14,18 @@ export const socialLinks = [
   { id: "facebook", name: "Facebook", handle: "@BlokkahApp", description: "خلك قريب من مجتمع بلوكه", href: "https://www.facebook.com/BlokkahApp/", color: "#e7edff" },
   { id: "youtube", name: "YouTube", handle: "@blokkah", description: "شاهد أكثر، واعرف أكثر", href: "https://www.youtube.com/@blokkah", color: "#ffe9e5" },
 ] as const;
+export const shortLinkDestinations = {
+  snapchat: socialLinks.find(link => link.id === "snapchat")!.href,
+  instagram: socialLinks.find(link => link.id === "instagram")!.href,
+  x: socialLinks.find(link => link.id === "x")!.href,
+  linkedin: socialLinks.find(link => link.id === "linkedin")!.href,
+  facebook: socialLinks.find(link => link.id === "facebook")!.href,
+  youtube: socialLinks.find(link => link.id === "youtube")!.href,
+  "google-play": destinations["google-play"],
+  "app-store": destinations["app-store"],
+  "apple-store": destinations["app-store"],
+  website: "https://www.blokkah.app/",
+} satisfies Partial<Record<Channel, string>>;
 export function isChannel(value: string): value is Channel {
   return channels.includes(value as Channel);
 }
