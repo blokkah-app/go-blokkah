@@ -78,4 +78,4 @@ The ticker pauses on hover and has a pause/resume button; keyboard users can scr
 Deploy this repository to a Node-compatible Next.js host (for example, the existing Blokkah hosting account), configure the environment above, and attach `go.blokkah.app` using the host's prescribed DNS records and HTTPS. The GA4 ID has been supplied and configured; no hosting account or DNS access was provided. Deployment and verification in GA4 reports have not been performed. The URLs above describe the intended production routes, not a claim that the domain is already deployed.
 
 Existing event components and Sheets APIs are retained but unused by the hub; their previous Google Sheets setup is unrelated to GA4.
-"# go-blokkah" 
+"# go-blokkah"  
