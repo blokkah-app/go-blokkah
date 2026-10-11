@@ -9,7 +9,7 @@ export const destinations = {
 export const socialLinks = [
   { id: "snapchat", name: "Snapchat", handle: "@UseBlokkah", description: "يوميات بلوكه، من قريب", href: "https://www.snapchat.com/add/UseBlokkah", color: "#fff5a7" },
   { id: "instagram", name: "Instagram", handle: "@blokkah", description: "العقار من زاوية ثانية", href: "https://www.instagram.com/blokkah/", color: "#fbe6ee" },
-  { id: "x", name: "X", handle: "@useblokkah", description: "أخبارنا وحديث العقار", href: "https://x.com/blokkahapp", color: "#e9edf1" },
+  { id: "x", name: "X", handle: "@useblokkah", description: "أخبارنا وحديث العقار", href: "https://x.com/useblokkah", color: "#e9edf1" },
   { id: "linkedin", name: "LinkedIn", handle: "Blokkah App", description: "أعمالنا وشراكاتنا وجديدنا", href: "https://www.linkedin.com/company/blokkah-app/", color: "#e1effa" },
   { id: "facebook", name: "Facebook", handle: "@BlokkahApp", description: "خلك قريب من مجتمع بلوكه", href: "https://www.facebook.com/BlokkahApp/", color: "#e7edff" },
   { id: "youtube", name: "YouTube", handle: "@blokkah", description: "شاهد أكثر، واعرف أكثر", href: "https://www.youtube.com/@blokkah", color: "#ffe9e5" },
